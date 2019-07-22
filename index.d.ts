@@ -148,6 +148,13 @@ declare namespace BluetoothSerial {
   >;
 
   /**
+   * Returns a list of known peripherals by their identifiers.
+   */
+  export function retrievePeripheralsWithIdentifiers(identifiers: Array<String>): Promise<
+    Array<iOSBluetoothDevice>
+  >;
+
+  /**
    * Cancel bluetooth device discovery.
    *
    * @alias stopScanning
