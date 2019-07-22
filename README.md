@@ -204,6 +204,17 @@ const devices = await BluetoothSerial.listUnpaired();
 const devices = await BluetoothSerial.discoverUnpairedDevices();
 ```
 
+##### retrievePeripheralsWithIdentifiers(identifiers : <span style="color:#999;">NSArray\<NSUUID></span>) : <span style="color:#999;">Promise\<[Device](#device-object)[]></span> (iOS only)
+
+Returns a list of known peripherals by their identifiers.
+
+- identifiers : <span style="color:#999;">NSArray\<NSUUID></span>
+  A list of peripheral identifiers (represented by NSUUID objects).
+
+```js
+const devices = await BluetoothSerial.retrievePeripheralsWithIdentifiers([]);
+```
+
 ##### cancelDiscovery() : <span style="color:#999;">Promise\<Boolean></span> | stopScanning() : <span style="color:#999;">Promise\<Boolean></span>
 
 Cancel bluetooth device discovery process.

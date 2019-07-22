@@ -311,4 +311,11 @@ typedef void (^CentralManagerDiscoverPeripheralsCallback) (NSMutableArray *perip
  */
 - (NSArray *)includeDefaultServices:(NSArray *)services;
 
+/*!
+ *  @method retrievePeripheralsWithIdentifiers.
+ *
+ *  @discussion Returns a list of known peripherals by their identifiers.
+ */
+- (NSArray *)retrievePeripheralsWithIdentifiers:(NSArray *)identifiers;
+
 @end

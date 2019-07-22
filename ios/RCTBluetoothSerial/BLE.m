@@ -495,6 +495,11 @@ NSDictionary *posnetService;
     return array;
 }
 
+- (NSArray *)retrievePeripheralsWithIdentifiers:(NSArray *)identifiers {
+    return [self.manager retrievePeripheralsWithIdentifiers:identifiers];
+}
+
+
 /*----------------------------------------------------*/
 #pragma mark - Private Methods -
 /*----------------------------------------------------*/

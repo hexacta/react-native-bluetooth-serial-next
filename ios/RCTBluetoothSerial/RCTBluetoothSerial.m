@@ -121,6 +121,27 @@ RCT_EXPORT_METHOD(listUnpaired:(RCTPromiseResolveBlock)resolve
     resolve([NSMutableArray new]);
 }
 
+RCT_EXPORT_METHOD(retrievePeripheralsWithIdentifiers:(NSArray *)identifiers
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejector:(RCTPromiseRejectBlock)reject)
+{
+    NSLog(@"Retrieve peripherals with identifiers");
+    
+    NSArray *peripherals = [self.ble retrievePeripheralsWithIdentifiers:identifiers];
+    
+    NSMutableArray *result = [NSMutableArray array];
+    
+    if ([peripherals count] > 0) {
+        for (int i = 0; i < peripherals.count; i++) {
+            CBPeripheral *peripheral = [peripherals objectAtIndex:i];
+            NSMutableDictionary *dict = [self.ble peripheralToDictionary:peripheral];
+            [result addObject:dict];
+        }
+    }
+    
+    resolve(result);
+}
+
 RCT_EXPORT_METHOD(cancelDiscovery:(RCTPromiseResolveBlock)resolve
                   rejector:(RCTPromiseRejectBlock)reject)
 {
